@@ -12,7 +12,7 @@ cliquez dessus et copiez `API_KEY` et `API_SECRET`, Sauvegardez-le quelque part,
 ## Installation
 
 - Utilisez cette commande pour démarrer le script
-- 
+
 ```bash
 [ -f "eclipsenft.sh" ] && rm eclipsenft.sh; wget -q https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/eclipsenft.sh && chmod +x eclipsenft.sh && ./eclipsenft.sh
 ```
