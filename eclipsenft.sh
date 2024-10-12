@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Install logo from GitHub
@@ -224,4 +223,14 @@ ts_file_Setup() {
 
 # Mint function
 mint() {
-   
+    show "Minting..."
+    wget https://picsum.photos/200 -O image.jpg
+    npx ts-node index.ts
+}
+
+# Function to display the menu
+show_menu() {
+    echo -e "\n\e[34m===== Eclipse NFT Setup Menu =====\e[0m"
+    echo "1) Install Node.js, Rust, and Solana"
+    echo "2) Set up Wallet"
+    echo "3
