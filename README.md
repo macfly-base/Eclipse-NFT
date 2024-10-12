@@ -13,7 +13,7 @@
 - Use this command to start the script
 
 ```bash
-[ -f "eclipsenft.sh" ] && rm eclipsenft.sh; wget -q https://raw.githubusercontent.com/zunxbt/Eclipse-NFT/main/eclipsenft.sh && chmod +x eclipsenft.sh && ./eclipsenft.sh
+[ -f "eclipsenft.sh" ] && rm eclipsenft.sh; wget -q https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/eclipsenft.sh && chmod +x eclipsenft.sh && ./eclipsenft.sh
 ```
 
 - There are 6 sections, you should start running one by one
