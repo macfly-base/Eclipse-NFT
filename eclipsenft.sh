@@ -172,12 +172,12 @@ fi
 file_path="./index.ts"
 
 # Use sed to replace the placeholders with user input
-sed -i "s/NAME/$nft_name/" "$file_path"
-sed -i "s/SYMBOL/$nft_symbol/" "$file_path"
-sed -i "s/INFO/$nft_info/" "$file_path"
-sed -i "s/mac1/$pinata_api_key/" "$file_path"
-sed -i "s/mac2/$pinata_secret_key/" "$file_path"
-sed -i "s/mac3/$network/" "$file_path"
+sed -i '' "s/NAME/$nft_name/" "$file_path"
+sed -i '' "s/SYMBOL/$nft_symbol/" "$file_path"
+sed -i '' "s/INFO/$nft_info/" "$file_path"
+sed -i '' "s/mac1/$pinata_api_key/" "$file_path"
+sed -i '' "s/mac2/$pinata_secret_key/" "$file_path"
+sed -i '' "s/mac3/$network/" "$file_path"
 
 echo "NFT details and network have been updated in $file_path"
    
