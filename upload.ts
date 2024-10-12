@@ -14,6 +14,7 @@ interface PinataUploadResponse {
     Timestamp: string;
 }
 
+
 const createPinataFetch = (): HttpInterface => ({
     send: async <ResponseData, RequestData = unknown>(request: HttpRequest<RequestData>): Promise<HttpResponse<ResponseData>> => {
         let headers = new Headers(
