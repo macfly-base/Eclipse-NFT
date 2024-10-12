@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -s https://raw.githubusercontent.com/zunxbt/logo/main/logo.sh | bash
+curl -s https://raw.githubusercontent.com/macfly-base/logo/main/logo.sh | bash
 sleep 3
 
 # Function to display messages
@@ -12,11 +12,11 @@ mkdir -p Eclipse && cd Eclipse
 # Function to install Node.js, npm, Rust, and Solana
 install_all() {
     show "Installing Node.js and npm..."
-    source <(wget -O - https://raw.githubusercontent.com/zunxbt/installation/main/node.sh)
+    source <(wget -O - https://raw.githubusercontent.com/macfly-base/installation/main/node.sh)
     show "Node.js and npm installation completed."
 
     show "Installing Rust..."
-    source <(wget -O - https://raw.githubusercontent.com/zunxbt/installation/main/rust.sh)
+    source <(wget -O - https://raw.githubusercontent.com/macfly-base/installation/main/rust.sh)
     show "Rust installation completed."
 
     if ! command -v solana &> /dev/null; then
@@ -143,7 +143,7 @@ ts_file_Setup() {
     fi
     
     # Download the new index.ts file
-    wget -O index.ts https://raw.githubusercontent.com/zunxbt/Eclipse-NFT/main/index.ts
+    wget -O index.ts https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/index.ts
 
 # Ask the user for the required information
 read -p "Enter NFT Name: " nft_name
@@ -175,9 +175,9 @@ file_path="./index.ts"
 sed -i "s/NAME/$nft_name/" "$file_path"
 sed -i "s/SYMBOL/$nft_symbol/" "$file_path"
 sed -i "s/INFO/$nft_info/" "$file_path"
-sed -i "s/ZUNXBT1/$pinata_api_key/" "$file_path"
-sed -i "s/ZUNXBT2/$pinata_secret_key/" "$file_path"
-sed -i "s/ZUNXBT3/$network/" "$file_path"
+sed -i "s/mac1/$pinata_api_key/" "$file_path"
+sed -i "s/mac2/$pinata_secret_key/" "$file_path"
+sed -i "s/mac3/$network/" "$file_path"
 
 echo "NFT details and network have been updated in $file_path"
    
@@ -189,7 +189,7 @@ if [ -f upload.ts ]; then
     fi
     
     # Download the new index.ts file
-    wget -O upload.ts https://raw.githubusercontent.com/zunxbt/Eclipse-NFT/main/upload.ts
+    wget -O upload.ts https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/upload.ts
     rm -f tsconfig.json
     npx tsc --init
 }
