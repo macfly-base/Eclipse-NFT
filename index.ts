@@ -41,9 +41,9 @@ const NFT_DETAILS = {
     ]
 };
 
-const PINATA_API_KEY = 'ZUNXBT1'; // 👈 Replace with your Pinata API key
-const PINATA_SECRET_KEY = 'ZUNXBT2'; // 👈 Replace this with your IPFS API endpoint
-const umi = createUmi(CLUSTERS.ZUNXBT3, OPTIONS.confirm).use(niftyAsset()); // 👈 Replace this with your cluster
+const PINATA_API_KEY = 'mac1'; // 👈 Replace with your Pinata API key
+const PINATA_SECRET_KEY = 'mac2'; // 👈 Replace this with your IPFS API endpoint
+const umi = createUmi(CLUSTERS.mac3, OPTIONS.confirm).use(niftyAsset()); // 👈 Replace this with your cluster
 const wallet = './eclipse-wallet.json'; // 👈 Replace this with your wallet path 
 
 const secretKey = JSON.parse(fs.readFileSync(wallet, 'utf-8'));
