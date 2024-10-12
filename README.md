@@ -1,4 +1,4 @@
-<h2 align=center> Guide en un clic pour créer et créer des NFT sur Eclipse Mainnet ou Testnet/h2>
+<h2 align=center> Guide en un clic pour créer et créer des NFT sur Eclipse Mainnet ou Testnet /h2>
 
 ## Prérequis
 -Frais de gaz nécessaires pour payer les frais de gaz, si vous n'avez pas de frais de gaz, utilisez ceci: [Mainnet Bridge](https://bridge.eclipse.xyz) ou [Testnet Bridge](https://bridge.validators.wtf)
