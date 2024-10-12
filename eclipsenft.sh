@@ -182,28 +182,10 @@ ts_file_Setup() {
     fi
 
     # Use sed to replace the placeholders with user input
-    if ! sed -i '' "s|NAME|$nft_name|g" "$file_path"; then
-        echo "Error replacing NAME in $file_path"
-        exit 1
-    fi
-    if ! sed -i '' "s|SYMBOL|$nft_symbol|g" "$file_path"; then
-        echo "Error replacing SYMBOL in $file_path"
-        exit 1
-    fi
-    if ! sed -i '' "s|INFO|$nft_info|g" "$file_path"; then
-        echo "Error replacing INFO in $file_path"
-        exit 1
-    fi
-    if ! sed -i '' "s|mac1|$pinata_api_key|g" "$file_path"; then
-        echo "Error replacing mac1 in $file_path"
-        exit 1
-    fi
-    if ! sed -i '' "s|mac2|$pinata_secret_key|g" "$file_path"; then
-        echo "Error replacing mac2 in $file_path"
-        exit 1
-    fi
-    if ! sed -i '' "s|mac3|$network|g" "$file_path"; then
-        echo "Error replacing mac3 in $file_path"
+    sed -i '' "s|NAME|$nft_name|g; s|SYMBOL|$nft_symbol|g; s|INFO|$nft_info|g; s|mac1|$pinata_api_key|g; s|mac2|$pinata_secret_key|g; s|mac3|$network|g" "$file_path"
+
+    if [[ $? -ne 0 ]]; then
+        echo "Error updating values in $file_path"
         exit 1
     fi
 
@@ -233,4 +215,25 @@ show_menu() {
     echo -e "\n\e[34m===== Eclipse NFT Setup Menu =====\e[0m"
     echo "1) Install Node.js, Rust, and Solana"
     echo "2) Set up Wallet"
-    echo "3
+    echo "3) Install npm dependencies"
+    echo "4) Setup TypeScript Files"
+    echo "5) Start Minting"
+    echo "6) Exit"
+    echo -e "===================================\n"
+}
+
+# Main loop
+while true; do
+    show_menu
+    read -p "Select an option: " choice
+    case $choice in
+        1) install_all ;;
+        2) setup_wallet ;;
+        3) create_and_install_dependencies ;;
+        4) ts_file_Setup ;;
+        5) mint ;;
+        6) exit 0 ;;
+        *) echo "Invalid option. Please try again." ;;
+    esac
+done
+
