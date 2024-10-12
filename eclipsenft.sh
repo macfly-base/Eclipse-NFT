@@ -1,3 +1,5 @@
+
+Copier le code
 #!/bin/bash
 
 curl -s https://raw.githubusercontent.com/macfly-base/logo/main/logo.sh | bash
@@ -97,7 +99,6 @@ setup_wallet() {
     cp "$KEYPAIR_PATH" "$PWD"
 }
 
-
 create_and_install_dependencies() {
     # Remove existing package.json if available
     rm -f package.json
@@ -145,50 +146,73 @@ ts_file_Setup() {
     # Download the new index.ts file
     wget -O index.ts https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/index.ts
 
-# Ask the user for the required information
-read -p "Enter NFT Name: " nft_name
-read -p "Enter NFT Symbol: " nft_symbol
-read -p "Enter NFT Description (INFO): " nft_info
-read -p "Enter Pinata API Key: " pinata_api_key
-read -p "Enter Pinata Secret Key: " pinata_secret_key
+    # Ask the user for the required information
+    read -p "Enter NFT Name: " nft_name
+    read -p "Enter NFT Symbol: " nft_symbol
+    read -p "Enter NFT Description (INFO): " nft_info
+    read -p "Enter Pinata API Key: " pinata_api_key
+    read -p "Enter Pinata Secret Key: " pinata_secret_key
 
-# Ask user for the network type
-echo "Select the network to create the NFT:"
-echo "1) Mainnet"
-echo "2) Testnet"
-read -p "Enter your choice (1 for Mainnet, 2 for Testnet): " network_choice
+    # Ask user for the network type
+    echo "Select the network to create the NFT:"
+    echo "1) Mainnet"
+    echo "2) Testnet"
+    read -p "Enter your choice (1 for Mainnet, 2 for Testnet): " network_choice
 
-# Set the network based on user choice
-if [ "$network_choice" == "1" ]; then
-    network="mainnet"
-elif [ "$network_choice" == "2" ]; then
-    network="testnet"
-else
-    echo "Invalid choice. Exiting."
-    exit 1
-fi
+    # Set the network based on user choice
+    if [ "$network_choice" == "1" ]; then
+        network="mainnet"
+    elif [ "$network_choice" == "2" ]; then
+        network="testnet"
+    else
+        echo "Invalid choice. Exiting."
+        exit 1
+    fi
 
-# Define the file to modify (replace this with the actual file path)
-file_path="./index.ts"
+    # Define the file to modify
+    file_path="./index.ts"
 
-# Use sed to replace the placeholders with user input
-sed -i '' "s/NAME/$nft_name/" "$file_path"
-sed -i '' "s/SYMBOL/$nft_symbol/" "$file_path"
-sed -i '' "s/INFO/$nft_info/" "$file_path"
-sed -i '' "s/mac1/$pinata_api_key/" "$file_path"
-sed -i '' "s/mac2/$pinata_secret_key/" "$file_path"
-sed -i '' "s/mac3/$network/" "$file_path"
+    # Check if the file exists
+    if [ ! -f "$file_path" ]; then
+        echo "Error: $file_path does not exist."
+        exit 1
+    fi
 
-echo "NFT details and network have been updated in $file_path"
-   
+    # Use sed to replace the placeholders with user input
+    if ! sed -i '' "s/NAME/$nft_name/g" "$file_path"; then
+        echo "Error replacing NAME in $file_path"
+        exit 1
+    fi
+    if ! sed -i '' "s/SYMBOL/$nft_symbol/g" "$file_path"; then
+        echo "Error replacing SYMBOL in $file_path"
+        exit 1
+    fi
+    if ! sed -i '' "s/INFO/$nft_info/g" "$file_path"; then
+        echo "Error replacing INFO in $file_path"
+        exit 1
+    fi
+    if ! sed -i '' "s/mac1/$pinata_api_key/g" "$file_path"; then
+        echo "Error replacing mac1 in $file_path"
+        exit 1
+    fi
+    if ! sed -i '' "s/mac2/$pinata_secret_key/g" "$file_path"; then
+        echo "Error replacing mac2 in $file_path"
+        exit 1
+    fi
+    if ! sed -i '' "s/mac3/$network/g" "$file_path"; then
+        echo "Error replacing mac3 in $file_path"
+        exit 1
+    fi
 
-if [ -f upload.ts ]; then
+    echo "NFT details and network have been updated in $file_path"
+
+    if [ -f upload.ts ]; then
         rm upload.ts
     else
         echo "upload.ts does not exist. Skipping removal."
     fi
     
-    # Download the new index.ts file
+    # Download the new upload.ts file
     wget -O upload.ts https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/upload.ts
     rm -f tsconfig.json
     npx tsc --init
@@ -219,10 +243,4 @@ while true; do
     case $choice in
         1) install_all ;;
         2) setup_wallet ;;
-        3) create_and_install_dependencies ;;
-        4) ts_file_Setup ;;
-        5) mint ;;
-        6) show "Exiting the script."; exit 0 ;;
-        *) show "Invalid option. Please try again." ;;
-    esac
-done
+        3)
