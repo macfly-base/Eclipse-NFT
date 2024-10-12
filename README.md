@@ -3,7 +3,9 @@
 ## Prérequis
 -Frais de gaz nécessaires pour payer les frais de gaz, si vous n'avez pas de frais de gaz, utilisez ceci: [Mainnet Bridge](https://bridge.eclipse.xyz) ou [Testnet Bridge](https://bridge.validators.wtf)
 
--Vous devez avoir`API_KEY` & `API_SECRET`,pour obtenir ceci API et SECRET, Visit [this site](https://pinata.cloud/), Inscrivez-vous en utilisant votre adresse e-mail, puis cliquez sur la ligne 3 dans le coin gauche, une barre latérale s'ouvrira, ici vous verrez `API KEYS` section , cliquez dessus et copiez `API_KEY` et `API_SECRET`, Sauvegardez-le quelque part, il sera nécessaire au milieu du code
+-Vous devez avoir`API_KEY` & `API_SECRET`,  pour obtenir ceci API et SECRET ,  Visit [this site](https://pinata.cloud/),   Inscrivez-vous en utilisant votre adresse e-mail, puis cliquez sur la ligne 3 dans le coin gauche, une barre latérale s'ouvrira, ici vous verrez `API KEYS` section , 
+
+cliquez dessus et copiez `API_KEY` et `API_SECRET`, Sauvegardez-le quelque part, il sera nécessaire au milieu du code
 
 - Vous pouvez utiliser n'importe quel terminal basé sur Linux, par exemple  [Codespace](https://github.com/codespaces) , [Gitpod](https://gitpod.io) , Ubuntu sur Windows ainsi que sur VPS
 
