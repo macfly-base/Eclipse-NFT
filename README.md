@@ -1,21 +1,20 @@
-<h2 align=center> One click guide to create and mint NFT on Eclipse Mainnet or Testnet</h2>
+<h2 align=center> Guide en un clic pour créer et créer des NFT sur Eclipse Mainnet ou Testnet/h2>
 
-## Prerequisites
+## Prérequis
+-Frais de gaz nécessaires pour payer les frais de gaz, si vous n'avez pas de frais de gaz, utilisez ceci: [Mainnet Bridge](https://bridge.eclipse.xyz) ou [Testnet Bridge](https://bridge.validators.wtf)
 
-- Gas fee needed for paying gas fee, if you don't have any gas fee then use this : [Mainnet Bridge](https://bridge.eclipse.xyz) or [Testnet Bridge](https://bridge.validators.wtf)
+-Vous devez avoir`API_KEY` & `API_SECRET`,pour obtenir ceci API et SECRET, Visit [this site](https://pinata.cloud/), Inscrivez-vous en utilisant votre adresse e-mail, puis cliquez sur la ligne 3 dans le coin gauche, une barre latérale s'ouvrira, ici vous verrez `API KEYS` section , cliquez dessus et copiez `API_KEY` et `API_SECRET`, Sauvegardez-le quelque part, il sera nécessaire au milieu du code
 
-- You need to have `API_KEY` & `API_SECRET`, to get this API and SECRET, Visit [this site](https://pinata.cloud/), Register using email address and then click on the 3 line in the left corner, a side bar will open, here u will see `API KEYS` section , click on it and copy `API_KEY` and `API_SECRET`, Save it somewhere, it will be required in the middle of the code
-
-- You can use any linux based terminal, for example, [Codespace](https://github.com/codespaces) , [Gitpod](https://gitpod.io) , Ubuntu on Windows as well as on VPS
+- Vous pouvez utiliser n'importe quel terminal basé sur Linux, par exemple  [Codespace](https://github.com/codespaces) , [Gitpod](https://gitpod.io) , Ubuntu sur Windows ainsi que sur VPS
 
 ## Installation
 
-- Use this command to start the script
-
+- Utilisez cette commande pour démarrer le script
+- 
 ```bash
 [ -f "eclipsenft.sh" ] && rm eclipsenft.sh; wget -q https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/eclipsenft.sh && chmod +x eclipsenft.sh && ./eclipsenft.sh
 ```
 
-- There are 6 sections, you should start running one by one
-
-- If you want to mint unlimited time, u just need to run 1 to 4 commands one by one only 1 time after that u can enter 5 again and again to mint and create unlimited time
+- Il y a 6 sections, vous devez commencer à les exécuter une par une
+  
+- Si vous souhaitez créer un temps illimité, il vous suffit d'exécuter 1 à 4 commandes une par une une seule fois, après quoi vous pouvez en saisir 5 encore et encore pour créer un temps illimité
