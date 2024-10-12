@@ -1,7 +1,7 @@
 
-Copier le code
 #!/bin/bash
 
+# Install logo from GitHub
 curl -s https://raw.githubusercontent.com/macfly-base/logo/main/logo.sh | bash
 sleep 3
 
@@ -10,15 +10,17 @@ show() {
     echo -e "\e[32m$1\e[0m"  # Green colored message
 }
 
+# Create a directory for Eclipse
 mkdir -p Eclipse && cd Eclipse
+
 # Function to install Node.js, npm, Rust, and Solana
 install_all() {
     show "Installing Node.js and npm..."
-    source <(wget -O - https://raw.githubusercontent.com/macfly-base/installation/main/node.sh)
+    source <(curl -s https://raw.githubusercontent.com/macfly-base/installation/main/node.sh)
     show "Node.js and npm installation completed."
 
     show "Installing Rust..."
-    source <(wget -O - https://raw.githubusercontent.com/macfly-base/installation/main/rust.sh)
+    source <(curl -s https://raw.githubusercontent.com/macfly-base/installation/main/rust.sh)
     show "Rust installation completed."
 
     if ! command -v solana &> /dev/null; then
@@ -99,6 +101,7 @@ setup_wallet() {
     cp "$KEYPAIR_PATH" "$PWD"
 }
 
+# Create and install npm dependencies
 create_and_install_dependencies() {
     # Remove existing package.json if available
     rm -f package.json
@@ -135,6 +138,7 @@ EOF
     show "Npm dependencies installation completed."
 }
 
+# Setup TypeScript files
 ts_file_Setup() {
     # Check if index.ts exists and remove it
     if [ -f index.ts ]; then
@@ -179,27 +183,27 @@ ts_file_Setup() {
     fi
 
     # Use sed to replace the placeholders with user input
-    if ! sed -i '' "s/NAME/$nft_name/g" "$file_path"; then
+    if ! sed -i '' "s|NAME|$nft_name|g" "$file_path"; then
         echo "Error replacing NAME in $file_path"
         exit 1
     fi
-    if ! sed -i '' "s/SYMBOL/$nft_symbol/g" "$file_path"; then
+    if ! sed -i '' "s|SYMBOL|$nft_symbol|g" "$file_path"; then
         echo "Error replacing SYMBOL in $file_path"
         exit 1
     fi
-    if ! sed -i '' "s/INFO/$nft_info/g" "$file_path"; then
+    if ! sed -i '' "s|INFO|$nft_info|g" "$file_path"; then
         echo "Error replacing INFO in $file_path"
         exit 1
     fi
-    if ! sed -i '' "s/mac1/$pinata_api_key/g" "$file_path"; then
+    if ! sed -i '' "s|mac1|$pinata_api_key|g" "$file_path"; then
         echo "Error replacing mac1 in $file_path"
         exit 1
     fi
-    if ! sed -i '' "s/mac2/$pinata_secret_key/g" "$file_path"; then
+    if ! sed -i '' "s|mac2|$pinata_secret_key|g" "$file_path"; then
         echo "Error replacing mac2 in $file_path"
         exit 1
     fi
-    if ! sed -i '' "s/mac3/$network/g" "$file_path"; then
+    if ! sed -i '' "s|mac3|$network|g" "$file_path"; then
         echo "Error replacing mac3 in $file_path"
         exit 1
     fi
@@ -218,29 +222,6 @@ ts_file_Setup() {
     npx tsc --init
 }
 
+# Mint function
 mint() {
-    show "Minting..."
-    wget https://picsum.photos/200 -O image.jpg
-    npx ts-node index.ts
-}
-
-# Function to display the menu
-show_menu() {
-    echo -e "\n\e[34m===== Eclipse NFT Setup Menu =====\e[0m"
-    echo "1) Install Node.js, Rust, and Solana"
-    echo "2) Set up Wallet"
-    echo "3) Install npm dependencies"
-    echo "4) Setup Mint File"
-    echo "5) Start Minting"
-    echo "6) Exit"
-    echo -e "===================================\n"
-}
-
-# Main loop
-while true; do
-    show_menu
-    read -p "Choose an option [1-6]: " choice
-    case $choice in
-        1) install_all ;;
-        2) setup_wallet ;;
-        3)
+   
