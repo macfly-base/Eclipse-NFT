@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Install logo from GitHub
@@ -148,6 +149,10 @@ ts_file_Setup() {
     
     # Download the new index.ts file
     wget -O index.ts https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/index.ts
+    if [ $? -ne 0 ]; then
+        echo "Error downloading index.ts. Please check the URL."
+        exit 1
+    fi
 
     # Ask the user for the required information
     read -p "Enter NFT Name: " nft_name
@@ -199,41 +204,5 @@ ts_file_Setup() {
     
     # Download the new upload.ts file
     wget -O upload.ts https://raw.githubusercontent.com/macfly-base/Eclipse-NFT/main/upload.ts
-    rm -f tsconfig.json
-    npx tsc --init
-}
-
-# Mint function
-mint() {
-    show "Minting..."
-    wget https://picsum.photos/200 -O image.jpg
-    npx ts-node index.ts
-}
-
-# Function to display the menu
-show_menu() {
-    echo -e "\n\e[34m===== Eclipse NFT Setup Menu =====\e[0m"
-    echo "1) Install Node.js, Rust, and Solana"
-    echo "2) Set up Wallet"
-    echo "3) Install npm dependencies"
-    echo "4) Setup TypeScript Files"
-    echo "5) Start Minting"
-    echo "6) Exit"
-    echo -e "===================================\n"
-}
-
-# Main loop
-while true; do
-    show_menu
-    read -p "Select an option: " choice
-    case $choice in
-        1) install_all ;;
-        2) setup_wallet ;;
-        3) create_and_install_dependencies ;;
-        4) ts_file_Setup ;;
-        5) mint ;;
-        6) exit 0 ;;
-        *) echo "Invalid option. Please try again." ;;
-    esac
-done
-
+    if [ $? -ne 0 ]; then
+        echo "Error downloading upload.ts. Please
