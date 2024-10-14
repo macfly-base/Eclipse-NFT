@@ -34,7 +34,7 @@ const NFT_DETAILS = {
     name: "NAME",
     symbol: "SYMBOL",
     royalties: 500,
-    description: 'INFO, Guide by ZunXBT',
+    description: 'INFO, Guide by macfly-base',
     imgType: 'image/jpg',
     attributes: [
         { trait_type: 'Accuracy', value: 'Very High' },
